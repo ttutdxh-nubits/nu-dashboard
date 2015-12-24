@@ -1,0 +1,69 @@
+<div ng-controller="MainController">
+  <md-content>
+      <header>
+
+
+          <md-sidenav md-component-id="left" class="md-sidenav-left">
+              <md-toolbar class="md-tall md-hue-2">
+                  <span flex></span>
+                  <div layout="column" class="md-toolbar-tools-bottom inset">
+                      <user-avatar></user-avatar>
+                      <span></span>
+                      <div>Firstname Lastname</div>
+                      <div>email@domainname.com</div>
+                  </div>
+              </md-toolbar>
+              <md-list>
+                  <md-item ng-repeat="item in menu">
+                      <a>
+                          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                              <div class="inset">
+                                  <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                              </div>
+                              <div class="inset">{{item.title}}
+                              </div>
+                          </md-item-content>
+                      </a>
+                  </md-item>
+                  <md-divider></md-divider>
+                  <md-subheader>Management</md-subheader>
+                  <md-item ng-repeat="item in admin">
+                      <a>
+                          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                              <div class="inset">
+                                  <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                              </div>
+                              <div class="inset">{{item.title}}
+                              </div>
+                          </md-item-content>
+                      </a>
+                  </md-item>
+              </md-list>
+          </md-sidenav>
+
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+              <md-button class="md-icon-button" ng-click="openLeftMenu()" aria-label="Settings">
+                <md-icon>menu</md-icon>
+              </md-button>
+              <h2>
+                <span>Toolbar with Icon Buttons</span>
+              </h2>
+              <span flex></span>
+              <md-button class="md-icon-button" aria-label="Favorite">
+                <md-icon>favorite</md-icon>
+              </md-button>
+              <md-button class="md-icon-button" aria-label="More">
+                <md-icon>more_vert</md-icon>
+              </md-button>
+            </div>
+          </md-toolbar>
+      </header>
+
+      <section class="jumbotron">
+          <div ng-controller="LineVMController">
+              <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick"></canvas>
+          </div>
+      </section>
+  </md-content>
+</div>
